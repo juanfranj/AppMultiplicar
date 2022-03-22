@@ -4,10 +4,6 @@ import os
 import threading
 
 
-def leerResultado():
-    pass
-def escribirResultado():
-    pass
 def continuar(pasar):
     while not pasar.get():
         #print("pasar: ", pasar.get())
