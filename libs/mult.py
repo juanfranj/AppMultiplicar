@@ -14,13 +14,20 @@ def continuar(pasar):
         sleep(0.1)
     #print("Pasar Actualizado: ", pasar.get())
 
-def comenzar(total, texto, resultado, pasar, texto_multi, mul):
-    t1 = threading.Thread(target =   multiplicar, args = (total,texto, resultado, pasar, texto_multi, mul), daemon = True)
+def comenzar(total, texto, resultado, pasar, texto_multi, mul, tablas):
+    t1 = threading.Thread(target =   multiplicar, args = (total,texto, resultado, pasar, texto_multi, mul, tablas), daemon = True)
     t1.start()
 
-def multiplicar(total, texto, resultado, pasar, texto_multi, multi):
-    tablas = [2,3,4,5]
-    num = total.get()
+def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
+    tab = tablas_chk
+    #print(tablas_chk)
+    #tablas = [2,3,4,5]
+    tablas = [i+2 for i in range(len(tablas_chk)) if tablas_chk[i] is True]
+    #print(tablas)
+    try:
+        num = total.get()
+    except:
+        num = 0
     texto.set("")
     mul = 1
     error = 0
