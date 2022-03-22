@@ -12,7 +12,9 @@ root=Tk()
 #---------------Introduco el titulo y el logo del software-------------
 root.iconbitmap("./images/logo.ico")
 root.title("Multiplications")
-#root.config(width=400, height=400)
+#root.config(width=400, height=400, bg ='#D0ECE7')
+#root.config(bg ='#D0ECE7')
+
 #---------------Introduzco el Frame-----------------------------------
 miFrame=Frame(root)
 miFrame.grid(row=0,column=0,columnspan=2,sticky="nw")
@@ -49,15 +51,6 @@ resultado = IntVar()
 pasar = BooleanVar()
 mul   = StringVar()
 
-tab2 = BooleanVar()
-tab3 = BooleanVar()
-tab4 = BooleanVar()
-tab5 = BooleanVar()
-tab6 = BooleanVar()
-tab7 = BooleanVar()
-tab8 = BooleanVar()
-tab9 = BooleanVar()
-tab10 = BooleanVar()
 
 
 #----------------------Funciones---------------------------------------------
@@ -71,7 +64,7 @@ def actualizar_pasar():
         pasar.set(True)
 
 def salirAplicacion():
-	valor=messagebox.askokcancel("Salir","¿Deseas salir de la aplicación?")
+	valor=messagebox.askokcancel("Salir","Carmen, recuerda que tu Papi te quiere mucho.\n            ¿Deseas salir de la aplicación?")
 	if valor==True:
 		root.destroy()
 #----------------------------Inicio variable----------------------
@@ -79,10 +72,6 @@ pasar.set(False)
 texto.set("Hola Carmen, ¿preparada para repasar las tablas?")
 total.set("")
 resultado.set("")
-tab2.set(True)
-tab3.set(True)
-tab4.set(True)
-tab5.set(True)
 #-----------------------------Menu-----------------------------------
 
 barraMenu=Menu(root)
@@ -99,7 +88,7 @@ multiplicar_boton.grid(row=0,column=0, sticky="w",columnspan=1, pady=10, padx =3
 multiplicar_boton.config(width=33)
 multiplicar_boton.config(cursor="hand2")
 
-resultados=Button(miFrame, text="Resultados", bg = '#85929E', command=lambda x:x)
+resultados=Button(miFrame, text="Resultados", bg = '#85929E', command='')
 resultados.grid(row=0,column=1, sticky="e",columnspan=1, pady=10, padx =3)
 resultados.config(width=33)
 resultados.config(cursor="hand2")
@@ -108,26 +97,7 @@ resultados.config(cursor="hand2")
 
 tablas = Label(miFrameTab, text = 'Tablas:')
 tablas.grid(row=0,column=0, sticky="w",pady=5)
-'''
-t2 = Checkbutton(miFrameTab, text='2',variable=tab2)
-t2.grid(row=1,column=0)
-t3 = Checkbutton(miFrameTab, text='3',variable=tab3)
-t3.grid(row=1,column=1)
-t4 = Checkbutton(miFrameTab, text='4',variable=tab4)
-t4.grid(row=1,column=2)
-t5 = Checkbutton(miFrameTab, text='5',variable=tab5)
-t5.grid(row=1,column=3)
-t6 = Checkbutton(miFrameTab, text='6',variable=tab6)
-t6.grid(row=1,column=4)
-t7 = Checkbutton(miFrameTab, text='7',variable=tab7)
-t7.grid(row=1,column=5)
-t8 = Checkbutton(miFrameTab, text='8',variable=tab8)
-t8.grid(row=1,column=6)
-t9 = Checkbutton(miFrameTab, text='9',variable=tab9)
-t9.grid(row=1,column=7)
-t10 = Checkbutton(miFrameTab, text='10',variable=tab10)
-t10.grid(row=1,column=8)
-'''
+
 tablas_chk = Checkbar(miFrameTab, [str(i) for i in range(2,11)])
 tablas_chk.grid(row=1,column=0)
 
