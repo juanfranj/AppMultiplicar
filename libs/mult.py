@@ -51,7 +51,7 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
                     fin_cuenta = True
                     mul += 1
                     error = 0
-                    
+                 
                 else:
                     errores += 1
                     if error == 1:
