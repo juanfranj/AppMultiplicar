@@ -64,7 +64,7 @@ def actualizar_pasar():
         pasar.set(True)
 
 def salirAplicacion():
-	valor=messagebox.askokcancel("Salir","¿Deseas salir de la aplicación?")
+	valor=messagebox.askokcancel("Salir","Carmen, recuerda que tu Papi te quiere mucho.\n            ¿Deseas salir de la aplicación?")
 	if valor==True:
 		root.destroy()
 #----------------------------Inicio variable----------------------
@@ -88,7 +88,7 @@ multiplicar_boton.grid(row=0,column=0, sticky="w",columnspan=1, pady=10, padx =3
 multiplicar_boton.config(width=33)
 multiplicar_boton.config(cursor="hand2")
 
-resultados=Button(miFrame, text="Resultados", bg = '#85929E', command=lambda x:x)
+resultados=Button(miFrame, text="Resultados", bg = '#85929E', command='')
 resultados.grid(row=0,column=1, sticky="e",columnspan=1, pady=10, padx =3)
 resultados.config(width=33)
 resultados.config(cursor="hand2")
