@@ -28,6 +28,7 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
         num = total.get()
     except:
         num = 0
+
     texto.set("")
     mul = 1
     error = 0
@@ -72,5 +73,9 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
             resultado.set("")
         
     total.set("")
-    texto_multi.set(f"Errores: {errores}")
-    texto.set(f"Multiplicaciones: {num}")
+    if num > 0:
+        texto_multi.set(f"Errores: {errores}")
+        texto.set(f"Multiplicaciones: {num}")
+    else:
+        texto_multi.set(f"Introduce número de")
+        texto.set(f"Multiplicaciones")
