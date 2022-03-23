@@ -101,6 +101,12 @@ tablas.grid(row=0,column=0, sticky="w",pady=5)
 tablas_chk = Checkbar(miFrameTab, [str(i) for i in range(2,11)])
 tablas_chk.grid(row=1,column=0)
 
+clear=Button(miFrameTab, text="Clear", background="#04FCD0",  command=lambda: [i.set(False) for i in tablas_chk.vars])
+clear.grid(row=1,column=1, sticky="e", pady=5, padx =30)
+clear.config(width=15)
+clear.config(cursor="hand2")
+
+
 #tablas_chk.pack(side=TOP, fill=X)
 #--------------------FramePrueba------------------------
 #lng = Checkbar(FramePrueba, ['Python', 'Ruby', 'Perl', 'C++'])
