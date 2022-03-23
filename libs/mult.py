@@ -1,5 +1,5 @@
 from time import sleep
-from random import randint
+from random import randint, shuffle
 import os
 import threading
 
@@ -31,8 +31,11 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
     errores = 0
     while mul <= num:
         try:
+            shuffle(tablas)
             a = tablas[randint(0, len(tablas)-1)]
-            b = randint(2, 9)
+            c= [i for i in range(2,10)]
+            shuffle(c)
+            b = c[randint(0, len(c)-1)]
             texto_multi.set(f"{a}x{b}")
             multi.set(f"Multiplicaciones: {mul}")
             #cmd = resultado.bind("<Return>",resultado.get())
