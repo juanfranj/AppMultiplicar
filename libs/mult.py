@@ -45,6 +45,8 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
                 texto.set("")
                 continuar(pasar)
                 if int(resultado.get()) == a * b:
+                    path = os.getcwd()+ "\\files\\aciertos.txt"
+                    escribir_fichero(f"{a}x{b}", path)
                     texto.set("¡¡Bien!!")
                     sleep(1)
                     fin_cuenta = True
@@ -52,6 +54,8 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
                     error = 0
                  
                 else:
+                    path = os.getcwd()+ "\\files\errores.txt"
+                    escribir_fichero(f"{a}x{b}", path)
                     errores += 1
                     if error == 1:
                         texto.set("Dejate de rollo Carmen y no la cagues más")
@@ -78,3 +82,10 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
     else:
         texto_multi.set(f"Introduce número de")
         texto.set(f"Multiplicaciones")
+
+def escribir_fichero(string, path):
+    print(path)
+    file = open(path, "a")
+    file.write(string+"//")
+    file.close()
+    print("fichero escrito")
