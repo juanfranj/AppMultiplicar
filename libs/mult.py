@@ -1,5 +1,6 @@
 from time import sleep
 from random import randint, shuffle
+from bd.funcionesBD import *
 import os
 import threading
 
@@ -45,8 +46,7 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
                 texto.set("")
                 continuar(pasar)
                 if int(resultado.get()) == a * b:
-                    path = os.getcwd()+ "\\files\\aciertos.txt"
-                    escribir_fichero(f"{a}x{b}", path)
+                    modificar_valor(f"{a}x{b}", True)
                     texto.set("¡¡Bien!!")
                     sleep(1)
                     fin_cuenta = True
@@ -54,6 +54,7 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
                     error = 0
                  
                 else:
+                    modificar_valor(f"{a}x{b}", False)
                     path = os.getcwd()+ "\\files\errores.txt"
                     escribir_fichero(f"{a}x{b}", path)
                     errores += 1
@@ -84,8 +85,8 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk):
         texto.set(f"Multiplicaciones")
 
 def escribir_fichero(string, path):
-    print(path)
+    
     file = open(path, "a")
     file.write(string+"//")
     file.close()
-    print("fichero escrito")
+    
