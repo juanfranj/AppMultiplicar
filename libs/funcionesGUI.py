@@ -13,9 +13,9 @@ def mostrar_resultado(campo_texto):
         cadena = "            {:<10} {:<10} {:<10}\n".format(resultado[0], resultado[1], resultado[2])
         campo_texto.tag_config('justified', justify=CENTER)
         campo_texto.insert(INSERT, cadena)
-    cadena = "----------------------------\n"
-    campo_texto.tag_config('justified', justify=CENTER)
-    campo_texto.insert(INSERT, cadena, 'justified')
+        cadena = "----------------------------\n"
+        campo_texto.tag_config('justified', justify=CENTER)
+        campo_texto.insert(INSERT, cadena, 'justified')
 
 def insertar_cabecera(campo_texto):
     cabecera = "{:<7} {:<10} {:<5}\n".format('MULT','ACIERTOS','ERRORES')
