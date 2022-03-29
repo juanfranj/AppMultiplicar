@@ -86,6 +86,11 @@ def multiplicar(total, texto, resultado, pasar, texto_multi, multi, tablas_chk, 
         else:
             texto_multi.set(f"No existen errores")
             texto.set(f"para repasar")
+    
+    sleep(4)
+    texto_multi.set(f" ")
+    texto.set("Hola Carmen, ¿preparada para repasar las tablas?")
+    multi.set(f" ")
 
 
 def numeros_random(tablas, repaso):

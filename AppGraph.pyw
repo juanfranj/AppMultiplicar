@@ -51,8 +51,6 @@ resultado = IntVar()
 pasar = BooleanVar()
 mul   = StringVar()
 
-
-
 #----------------------Funciones---------------------------------------------
 def onEnter(event):
     actualizar_pasar()
@@ -148,21 +146,6 @@ resultado_entry=Entry(miFrame3, text=resultado, justify=RIGHT)
 resultado_entry.grid(row=1,column=1, sticky="e")
 resultado_entry.config(width=5)
 resultado_entry.bind('<Return>', onEnter)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #----------------------------Fin Ventana---------------------------------
 root.mainloop()

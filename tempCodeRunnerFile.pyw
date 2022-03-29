@@ -1,0 +1,1 @@
+texto.set("Hola Carmen, ¿preparada para repasar las tablas?")
