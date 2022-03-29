@@ -83,12 +83,12 @@ barraMenu.add_command(label="Salir", command=salirAplicacion)
 
 #-------------------Frames-----------------------------
 #----------------------miFrame--------------------------
-multiplicar_boton=Button(miFrame, text="Comenzar", background="#D5DBDB",  command=lambda:comenzar(total, texto, resultado, pasar, texto_multi, mul, tablas_chk.state()))
+multiplicar_boton=Button(miFrame, text="Comenzar", background="#A2D9CE",  command=lambda:comenzar(total, texto, resultado, pasar, texto_multi, mul, tablas_chk.state(), False))
 multiplicar_boton.grid(row=0,column=0, sticky="w",columnspan=1, pady=10, padx =3)
 multiplicar_boton.config(width=33)
 multiplicar_boton.config(cursor="hand2")
 
-resultados=Button(miFrame, text="Resultados", bg = '#85929E', command='')
+resultados=Button(miFrame, text="Errores", bg = '#F5B7B1', command=lambda:comenzar(total, texto, resultado, pasar, texto_multi, mul, tablas_chk.state(), True))
 resultados.grid(row=0,column=1, sticky="e",columnspan=1, pady=10, padx =3)
 resultados.config(width=33)
 resultados.config(cursor="hand2")
@@ -101,7 +101,7 @@ tablas.grid(row=0,column=0, sticky="w",pady=5)
 tablas_chk = Checkbar(miFrameTab, [str(i) for i in range(2,11)])
 tablas_chk.grid(row=1,column=0)
 
-clear=Button(miFrameTab, text="Clear", background="#04FCD0",  command=lambda: [i.set(False) for i in tablas_chk.vars])
+clear=Button(miFrameTab, text="Clear", background="#D6EAF8",  command=lambda: [i.set(False) for i in tablas_chk.vars])
 clear.grid(row=1,column=1, sticky="e", pady=5, padx =30)
 clear.config(width=15)
 clear.config(cursor="hand2")
@@ -122,7 +122,7 @@ total_entry=Entry(miFrame1, text=total, justify=RIGHT)
 total_entry.grid(row=2,column=1, sticky="e")
 total_entry.config(width=5)
 
-mult_real = Label(miFrame1, textvariable = mul, background="#76D7C4")
+mult_real = Label(miFrame1, textvariable = mul, background="#D6DBDF")
 mult_real.grid(row=2,column=2, sticky="e",pady=10, padx=10)
 mult_real.config(width=43)
 

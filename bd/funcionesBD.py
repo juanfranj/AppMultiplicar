@@ -12,6 +12,23 @@ def crear_valores():
     conexion.commit()
     conexion.close()
 
+def resetear_tabla():
+    path = os.getcwd()+'\\bd\\tablasMultiplicar.db'
+    conexion = sqlite3.connect(path)
+    cursor = conexion.cursor()
+    for i in range(2,11):
+        for j in range(2,10):
+            cursor.execute(
+                f"""
+                UPDATE MULTIPLICACIONES
+                SET ACIERTOS = 0, ERRORES = 0
+                WHERE MULTIPLICACION = '{i}x{j}' 
+                """
+            )
+    conexion.commit()
+    conexion.close()
+
+
 def modificar_valor(valor,acierto):
     path = os.getcwd()+'\\bd\\tablasMultiplicar.db'
     conexion = sqlite3.connect(path)
@@ -48,5 +65,5 @@ def consultar_valor(cursor, valor):
     consulta = cursor.fetchone()
     return consulta[0], consulta[1], consulta[2]
 
-if __name__ == '__main__':
-    modificar_valor('2x8', True)
+#if __name__ == '__main__':
+#   resetear_tabla()
