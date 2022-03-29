@@ -2,6 +2,7 @@
 from tkinter import *
 from tkinter import messagebox
 from xmlrpc.client import Boolean
+from libs.funcionesGUI import *
 from libs.mult import *
 from libs.clases import *
 
@@ -14,6 +15,7 @@ root.iconbitmap("./images/logo.ico")
 root.title("Multiplications")
 #root.config(width=400, height=400, bg ='#D0ECE7')
 #root.config(bg ='#D0ECE7')
+
 
 #---------------Introduzco el Frame-----------------------------------
 miFrame=Frame(root)
@@ -83,12 +85,17 @@ barraMenu.add_command(label="Salir", command=salirAplicacion)
 #----------------------miFrame--------------------------
 multiplicar_boton=Button(miFrame, text="Comenzar", background="#A2D9CE",  command=lambda:comenzar(total, texto, resultado, pasar, texto_multi, mul, tablas_chk.state(), False))
 multiplicar_boton.grid(row=0,column=0, sticky="w",columnspan=1, pady=10, padx =3)
-multiplicar_boton.config(width=33)
+multiplicar_boton.config(width=23)
 multiplicar_boton.config(cursor="hand2")
 
-resultados=Button(miFrame, text="Errores", bg = '#F5B7B1', command=lambda:comenzar(total, texto, resultado, pasar, texto_multi, mul, tablas_chk.state(), True))
-resultados.grid(row=0,column=1, sticky="e",columnspan=1, pady=10, padx =3)
-resultados.config(width=33)
+errores=Button(miFrame, text="Errores", bg = '#F5B7B1', command=lambda:comenzar(total, texto, resultado, pasar, texto_multi, mul, tablas_chk.state(), True))
+errores.grid(row=0,column=1, sticky="e",columnspan=1, pady=10, padx =3)
+errores.config(width=23)
+errores.config(cursor="hand2")
+
+resultados=Button(miFrame, text="Resultados", bg = '#5499C7', command=lambda:ventana_resultados())
+resultados.grid(row=0,column=2, sticky="e",columnspan=1, pady=10, padx =3)
+resultados.config(width=23)
 resultados.config(cursor="hand2")
 
 #----------------------miFrameTablas-------------------------

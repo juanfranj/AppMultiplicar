@@ -65,5 +65,18 @@ def consultar_valor(cursor, valor):
     consulta = cursor.fetchone()
     return consulta[0], consulta[1], consulta[2]
 
+def resultados_totales():
+    path = os.getcwd()+'\\bd\\tablasMultiplicar.db'
+    conexion = sqlite3.connect(path)
+    cursor = conexion.cursor()
+    cursor.execute(
+        """
+        SELECT * FROM MULTIPLICACIONES
+        """
+    )
+    consulta = cursor.fetchall()
+    return consulta
+
+
 #if __name__ == '__main__':
 #   resetear_tabla()
