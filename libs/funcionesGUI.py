@@ -50,10 +50,28 @@ def ventana_resultados():
 
     campo_texto = ScrolledText(miFrame, width=50, height=10)
     campo_texto.grid(row=1, column=0)
+    #---------------------------MiFrame2--------------------------------
+    boton_label = Label(miFrame2, text="")
+    boton_label.grid(row=0,column=0, sticky="w",pady=5)
+    
+    boton_clear = Button(miFrame2, text="Clear", background="#D6EAF8",  command=lambda:campo_texto.delete("1.0", END))
+    boton_clear.grid(row=1,column=0, sticky="e", pady=5, padx =30)
+    boton_clear.config(width=15)
+    boton_clear.config(cursor="hand2")
 
     boton_resul = Button(miFrame2, text="Resultado", background="#D6EAF8",  command=lambda:mostrar_resultado(campo_texto))
-    boton_resul.grid(row=1,column=0, sticky="e", pady=5, padx =30)
+    boton_resul.grid(row=2,column=0, sticky="e", pady=5, padx =30)
     boton_resul.config(width=15)
     boton_resul.config(cursor="hand2")
+
+    boton_estad = Button(miFrame2, text="Estadistica", background="#D6EAF8",  command='')
+    boton_estad.grid(row=3,column=0, sticky="e", pady=5, padx =30)
+    boton_estad.config(width=15)
+    boton_estad.config(cursor="hand2")
+
+    boton_mod = Button(miFrame2, text="Modificar", background="#D6EAF8",  command='')
+    boton_mod.grid(row=4,column=0, sticky="e", pady=5, padx =30)
+    boton_mod.config(width=15)
+    boton_mod.config(cursor="hand2")
     
 
