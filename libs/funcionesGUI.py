@@ -1,8 +1,9 @@
+from distutils.log import error
 from tkinter import *
 from tkinter.scrolledtext import ScrolledText
 
 from more_itertools import first
-from bd.funcionesBD import resultados_totales
+from bd.funcionesBD import consultar_resultados, resultados_totales
 
 
 def mostrar_resultado(campo_texto):
@@ -27,6 +28,25 @@ def insertar_cabecera(campo_texto):
     #texto.set(cabecera)
     campo_texto.tag_config('justified', justify=CENTER)
     campo_texto.insert(INSERT, cabecera, 'justified')
+
+def mostrar_estadisticas(campo_texto):
+    campo_texto.delete("1.0", END)
+    aciertos, errores = consultar_resultados()
+    total = aciertos + errores
+    cadena = "\n----------------------------------------\n"
+    campo_texto.insert(INSERT, cadena)
+    cadena = "ESTADÍSTICAS\n"
+    campo_texto.insert(INSERT, cadena)
+    cadena = "----------------------------------------\n"
+    campo_texto.insert(INSERT, cadena)
+    cadena = "{:<25} {:<5}\n".format('Multiplicaciones: ', total)
+    campo_texto.insert(INSERT, cadena)
+    cadena = "{:<25} {:<5} {:<5} {:<0} \n".format('Aciertos: ', aciertos, round((aciertos/total)*100, 2), "%")
+    campo_texto.insert(INSERT, cadena)
+    cadena = "{:<26} {:<5} {:<4} {:<0}\n".format('Errores: ', errores, round((errores/total)*100, 2), "%")
+    campo_texto.insert(INSERT, cadena)
+    cadena = "----------------------------------------\n"
+    campo_texto.insert(INSERT, cadena)
 
 
 def ventana_resultados():
@@ -64,13 +84,13 @@ def ventana_resultados():
     boton_resul.config(width=15)
     boton_resul.config(cursor="hand2")
 
-    boton_estad = Button(miFrame2, text="Estadistica", background="#D6EAF8",  command='')
+    boton_estad = Button(miFrame2, text="Estadística", background="#D6EAF8",  command=lambda:mostrar_estadisticas(campo_texto))
     boton_estad.grid(row=3,column=0, sticky="e", pady=5, padx =30)
     boton_estad.config(width=15)
     boton_estad.config(cursor="hand2")
 
     boton_mod = Button(miFrame2, text="Modificar", background="#D6EAF8",  command='')
-    boton_mod.grid(row=4,column=0, sticky="e", pady=5, padx =30)
+    #boton_mod.grid(row=4,column=0, sticky="e", pady=5, padx =30)
     boton_mod.config(width=15)
     boton_mod.config(cursor="hand2")
     

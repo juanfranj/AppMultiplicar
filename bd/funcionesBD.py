@@ -77,6 +77,19 @@ def resultados_totales():
     consulta = cursor.fetchall()
     return consulta
 
+def consultar_resultados():
+    path = os.getcwd()+'\\bd\\tablasMultiplicar.db'
+    conexion = sqlite3.connect(path)
+    cursor = conexion.cursor()
+    cursor.execute(
+        """
+        SELECT SUM(ACIERTOS)"ACIERTOS", SUM(ERRORES)"ERRORES"
+        FROM MULTIPLICACIONES
+        """
+    )
+    consulta = cursor.fetchone()
+    return consulta[0], consulta[1]
+
 
 #if __name__ == '__main__':
 #   resetear_tabla()
