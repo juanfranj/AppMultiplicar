@@ -1,8 +1,6 @@
-from distutils.log import error
+
 from tkinter import *
 from tkinter.scrolledtext import ScrolledText
-
-from more_itertools import first
 from bd.funcionesBD import consultar_resultados, resultados_totales
 
 
