@@ -93,7 +93,7 @@ errores.grid(row=0,column=1, sticky="e",columnspan=1, pady=10, padx =3)
 errores.config(width=23)
 errores.config(cursor="hand2")
 
-resultados=Button(miFrame, text="Resultados", bg = '#5499C7', command=lambda:ventana_resultados())
+resultados=Button(miFrame, text="Resultados", bg = '#5499C7', command=lambda:ventana_resultados(root))
 resultados.grid(row=0,column=2, sticky="e",columnspan=1, pady=10, padx =3)
 resultados.config(width=23)
 resultados.config(cursor="hand2")
